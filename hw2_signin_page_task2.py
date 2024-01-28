@@ -30,7 +30,6 @@ assert 'Sign into your Target account' in actual_text, f'Expected text "Sign int
 # Sign in button is shown
 driver.find_element(By.ID, 'login')
 
-
 print('Test case passed')
 driver.quit()
 
