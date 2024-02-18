@@ -1,7 +1,6 @@
 # Amazon logo
 driver.find_element(By.XPATH, "//i[@aria-label='Amazon']")
 
-
 # Email Field
 driver.find_element(By.ID, 'ap_email')
 
