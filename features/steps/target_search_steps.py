@@ -8,16 +8,16 @@ from time import sleep
    # context.driver.get("https://www.target.com/")
 
 
-@when('Search for lamp')
-def search_product(context):
-    context.driver.find_element(By.ID, 'search').send_keys('lamp')
+@when('Search for {product}')
+def search_product(context, product):
+    context.driver.find_element(By.ID, 'search').send_keys(product)
     context.driver.find_element(By.XPATH, "//button[@data-test='@web/Search/SearchButton']").click()
     sleep(10)
 
 
-@then('Search results for lamp are shown')
-def verify_search_results_correct(context):
+@then('Search results for {expected_product} are shown')
+def verify_search_results_correct(context, expected_product):
     actual_text = context.driver.find_element(By.XPATH, "//div[@data-test='resultsHeading']").text
-    assert 'lamp' in actual_text, f"Expected word lamp {actual_text}"
+    assert expected_product in actual_text, f"Expected word {expected_product} not in {actual_text}"
     print("Test Case Passed")
 
